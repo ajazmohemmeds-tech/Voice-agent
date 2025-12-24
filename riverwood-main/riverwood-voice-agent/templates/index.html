@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Riverwood AI Voice Agent</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
+  <body>
+    <!-- Particle Background -->
+    <div class="particles">
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+    </div>
+
+    <!-- History Sidebar -->
+    <div id="historySidebar" class="history-sidebar">
+      <div class="history-header">
+        <h3>💬 Conversation History</h3>
+        <button id="closeHistory" class="close-btn">✕</button>
+      </div>
+      <div id="historyContent" class="history-content">
+        <p class="no-history">No conversations yet</p>
+      </div>
+    </div>
+
+    <!-- About Modal Popup -->
+    <div id="aboutModal" class="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>🏗️ About Riverwood AI</h2>
+          <button id="closeModal" class="close-modal-btn">✕</button>
+        </div>
+        <div class="modal-body">
+          <div class="about-section">
+            <h3>🤖 What is Riverwood AI?</h3>
+            <p>
+              Riverwood AI is an intelligent voice assistant specifically
+              designed for construction project management. It uses advanced AI
+              technology to provide real-time updates, answer queries, and
+              assist with project-related information.
+            </p>
+          </div>
+
+          <div class="about-section">
+            <h3>✨ Key Features</h3>
+            <ul>
+              <li>
+                🎤 <strong>Voice Recognition</strong> - Speak naturally in Hindi
+                or English
+              </li>
+              <li>
+                🔊 <strong>Human-like Voice</strong> - Natural text-to-speech
+                responses
+              </li>
+              <li>
+                💭 <strong>Context Memory</strong> - Remembers previous
+                conversations
+              </li>
+              <li>
+                📊 <strong>Live Updates</strong> - Real-time construction
+                progress reports
+              </li>
+              <li>
+                🌍 <strong>Multilingual</strong> - Supports Hindi and English
+                seamlessly
+              </li>
+            </ul>
+          </div>
+
+          <div class="about-section">
+            <h3>🛠️ Technology Stack</h3>
+            <p>
+              Built with cutting-edge AI technologies including OpenAI
+              GPT-4o-mini for intelligent responses, ElevenLabs for natural
+              voice synthesis, and Web Speech API for voice recognition.
+            </p>
+          </div>
+
+          <div class="about-section">
+            <h3>📞 Support</h3>
+            <p>
+              For assistance or inquiries, contact the Riverwood Construction
+              team at <strong>support@riverwood.ai</strong>
+            </p>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <p>Version 1.0 | © 2025 Riverwood Construction</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="main-container">
+      <!-- Side Buttons -->
+      <button
+        id="historyToggle"
+        class="history-toggle"
+        title="Conversation History"
+      >
+        📜
+      </button>
+      <button id="aboutToggle" class="about-toggle" title="About Riverwood AI">
+        ℹ️
+      </button>
+
+      <div class="container">
+        <div class="header floating">
+          <h1>🏗️ Riverwood AI</h1>
+          <p class="subtitle">Your Construction Voice Assistant</p>
+          <div class="pulse-ring"></div>
+        </div>
+
+        <div class="language-selector floating">
+          <button class="lang-btn active" data-lang="english">English</button>
+          <button class="lang-btn" data-lang="hindi">हिंदी/English</button>
+        </div>
+
+        <div class="chat-container">
+          <div id="chatMessages" class="messages"></div>
+          <div
+            id="typingIndicator"
+            class="typing-indicator"
+            style="display: none"
+          >
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
+
+        <div class="input-container floating">
+          <button id="voiceBtn" class="voice-btn">
+            <span class="mic-icon">🎤</span>
+            <span class="pulse-wave"></span>
+          </button>
+          <input
+            type="text"
+            id="textInput"
+            placeholder="Type or speak your message..."
+          />
+          <button id="sendBtn" class="send-btn">
+            <span>Send</span>
+            <span class="btn-glow"></span>
+          </button>
+        </div>
+
+        <div class="status" id="status"></div>
+      </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+  </body>
+</html>
